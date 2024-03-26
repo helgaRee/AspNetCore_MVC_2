@@ -22,6 +22,7 @@ public class SignUpModel
     [DataType(DataType.EmailAddress)]
     [Display(Name = "Email", Prompt = "Enter your email")]
     [Required(ErrorMessage = "A valid email is required")]
+    [RegularExpression(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$", ErrorMessage = "Ogiltig e-postadress")]
     public string Email { get; set; } = null!;
 
 

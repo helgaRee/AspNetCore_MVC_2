@@ -1,4 +1,5 @@
 ﻿using Infrastructure.Contexts;
+using Infrastructure.Entities;
 using Infrastructure.Model;
 using Infrastructure.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -21,28 +22,60 @@ public class CourseController : ControllerBase
         _courseService = courseService;
     }
 
+
     [HttpPost]
     public async Task<IActionResult> CreateOne(CourseModel model)
     {
-        if (!string.IsNullOrEmpty(model.Title))
+        if (ModelState.IsValid)
         {
-            var result = await _courseService.CreateCourseAsync(model);
-
-            if (result.StatusCode == Infrastructure.Model.StatusCode.OK)
+            if (!await _dataContext.Courses.AnyAsync(x => x.Title == model.Title))
             {
+                var courseEntity = new CourseEntity
+                {
+                    Title = model.Title,
+                    Author = model.Author,
+                    IsBestSeller = model.IsBestSeller,
+                    Price = model.Price,
+                    DiscountPrice = model.DiscountPrice,
+                    LikesInNumbers = model.LikesInNumbers,
+                    LikesInProcent = model.LikesInProcent,
+                    Hours = model.Hours,
+                    ImageName = model.ImageName,
+
+                };
+
+                _dataContext.Courses.Add(courseEntity);
+                await _dataContext.SaveChangesAsync();
+
                 return Created("", null);
             }
-            else if (result.StatusCode == Infrastructure.Model.StatusCode.EXISTS)
-            {
-                return Conflict(result.Message);
-            }
-            else
-            {
-                return Problem(result.Message);
-            }
         }
+
         return BadRequest();
     }
+
+    //[HttpPost]
+    //public async Task<IActionResult> CreateOne(CourseModel model)
+    //{
+    //    if (!string.IsNullOrEmpty(model.Title))
+    //    {
+    //        var result = await _courseService.CreateCourseAsync(model);
+
+    //        if (result.StatusCode == Infrastructure.Model.StatusCode.OK)
+    //        {
+    //            return Created("", null);
+    //        }
+    //        else if (result.StatusCode == Infrastructure.Model.StatusCode.EXISTS)
+    //        {
+    //            return Conflict(result.Message);
+    //        }
+    //        else
+    //        {
+    //            return Problem(result.Message);
+    //        }
+    //    }
+    //    return BadRequest();
+    //}
 
 
 
