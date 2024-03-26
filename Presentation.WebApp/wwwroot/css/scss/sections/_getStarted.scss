@@ -1,0 +1,50 @@
+.get-started {
+    background-color: $gray-100;
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        .content {
+            display: flex;
+            flex-direction: column;
+
+            p {}
+
+            h2 {
+                color: pink;
+
+                .skills {}
+            }
+
+            .btn {}
+        }
+        .img-get-started{
+
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .get-started {
+    
+        .container {
+            display: flex;
+            flex-direction: row;
+            .content {
+                
+                p {}
+    
+                h2 {
+                    color: pink;
+    
+                    .skills {}
+                }
+    
+                .btn {}
+            }
+            .img-get-started{
+    
+            }
+        }
+    }
+}

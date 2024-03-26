@@ -1,0 +1,244 @@
+.account-details {
+    .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: "aside basic" "aside address";
+
+
+        aside {
+            grid-area: aside;
+            margin: 0 auto;
+            border-right: 1px solid gray;
+            padding-right: 7rem;
+
+            h5{}
+            p{}
+            button{
+                margin-bottom: 1rem;
+            }
+
+            .settings{
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        .account-information {
+            h1 {
+            }
+
+            #basicInfoForm {
+                grid-area: basic;
+
+                h5 {
+                }
+
+                .form-content {
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    grid-template-areas: "firstname" "lastname" "email" "phone" "biography" "cancel" "submit";
+
+                    .input-group {
+                    }
+
+                    #firstname {
+                        grid-area: firstname;
+                    }
+
+                    #lastname {
+                        grid-area: lastname;
+                    }
+
+                    #email {
+                        grid-area: email;
+                    }
+
+                    #phone {
+                        grid-area: phone;
+                    }
+
+                    #biography {
+                        grid-area: biography;
+                    }
+
+                    #btn-submit {
+                        grid-area: submit;
+                    }
+
+                    #btn-cancel {
+                        grid-area: cancel;
+                        margin-bottom: 20px;
+                    }
+                }
+            }
+
+
+
+
+
+
+
+            #addressInfoForm {
+                grid-area: address;
+
+                h5 {
+                }
+
+                .form-content {
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    grid-template-areas: "address1" "address2" "postalcode" "city" "cancel" "submit";
+
+                    .input-group {
+                    }
+
+                    #address-line-1 {
+                        grid-area: address1;
+                    }
+
+                    #address-line-2 {
+                        grid-area: address2;
+                    }
+
+                    #postalcode {
+                        grid-area: postalcode;
+                    }
+
+                    #city {
+                        grid-area: city;
+                    }
+
+                    #btn-submit {
+                        grid-area: submit;
+                    }
+
+                    #btn-cancel {
+                        grid-area: cancel;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.details-buttons {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+
+
+
+@media (min-width: 768px) {
+
+    .account-details {
+        .container {
+            aside {
+            }
+
+            .account-information {
+                h1 {
+                }
+
+                #basic-info {
+                    h5 {
+                    }
+
+                    .form-content {
+                        display: grid;
+                        gap: 30px;
+                        grid-template-columns: 1fr 1fr;
+                        grid-template-areas: "firstname lastname" "email phone" "biography biography" "cancel submit";
+
+                        .input-group {
+                        }
+
+                        #firstname {
+                            grid-area: firstname;
+                        }
+
+                        #lastname {
+                            grid-area: lastname;
+                        }
+
+                        #email {
+                            grid-area: email;
+                        }
+
+                        #phone {
+                            grid-area: phone;
+                        }
+
+                        #biography {
+                            grid-area: biography;
+                        }
+
+                        #btn-cancel {
+                            grid-area: cancel;
+                        }
+                        #btn-submit {
+                            grid-area: submit;
+                        }
+
+                    }
+                }
+
+
+
+
+
+
+
+                #address-info {
+                    h5 {
+                    }
+
+                    .form-content {
+                        display: grid;
+                        gap: 30px;
+                        grid-template-columns: 1fr 1fr;
+                        grid-template-areas: "address1 address1" "address2 address2" "postalcode city" "cancel submit";
+
+                        .input-group {
+                        }
+
+                        #address-line-1 {
+                            grid-area: address1;
+                        }
+
+                        #address-line-2 {
+                            grid-area: address2;
+                        }
+
+                        #postalcode {
+                            grid-area: postalcode;
+                        }
+
+                        #city {
+                            grid-area: city;
+                        }
+
+                        #btn-cancel {
+                            grid-area: cancel;
+                        }
+                        #btn-submit {
+                            grid-area: submit;
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+
+    .details-buttons {
+        margin-top: 20px;
+        display: flex;
+        gap: 10px;
+        flex-direction: row;
+    }
+
+}

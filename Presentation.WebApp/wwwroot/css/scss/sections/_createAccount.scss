@@ -1,0 +1,121 @@
+.create-account {
+    margin-top: 150px;
+    margin-bottom: 30px;
+
+    .container {
+        //.form-heading{grid-area: heading;}
+        form {
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            /* Dela upp i två kolumner */
+            grid-auto-rows: minmax(100px, auto);
+            column-gap: 20px;
+            grid-template-areas:
+                "heading heading" "firstname lastname" "email email" "password password" "confirmPassword confirmPassword" "terms terms";
+
+
+            @media (min-width: 992px) {
+                width: 50%;
+            }
+            /* Uppdaterat för att matcha koden nedan */
+            label {
+                display: block;
+            }
+
+            input {
+                width: 100%;
+                padding: 5px;
+                margin-top: 5px;
+            }
+
+            .form-heading {
+                grid-area: heading;
+            }
+
+            .label-firstname {
+                grid-area: firstname;
+            }
+
+            .label-lastname {
+                grid-area: lastname;
+            }
+
+            .label-email {
+                grid-area: email;
+            }
+
+            .label-password {
+                grid-area: password;
+            }
+
+            .label-confirm-password {
+                grid-area: confirmPassword;
+            }
+
+            .terms {
+                gap: 10px;
+                grid-area: terms;
+                flex-direction: row;
+                display: -webkit-inline-box;
+            }
+        }
+    }
+}
+
+#form-account {
+    .container {
+        form {
+            width: 50%;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            /* Dela upp i två kolumner */
+            grid-auto-rows: minmax(100px, auto);
+            column-gap: 20px;
+            grid-template-areas:
+                "heading heading" "firstname lastname" "email email" "password password" "confirmPassword confirmPassword" "terms terms";
+
+            .content {
+
+                #form-firstname {
+                    grid-area: firstname;
+                }
+
+                #form-lastname {
+                    grid-area: lastname;
+                }
+
+                #form-email {
+                    grid-area: email;
+                }
+
+                #form-password {
+                    grid-area: password;
+                }
+
+                #form-confirm {
+                    grid-area: confirm;
+                }
+
+                #form-terms {
+                    gap: 10px;
+                    grid-area: terms;
+                    flex-direction: row;
+                    display: -webkit-inline-box;
+
+                    .checkbox-group {
+                        input {
+                        }
+
+                        label {
+                        }
+                    }
+
+                    .form-submit {
+                    }
+                }
+            }
+        }
+    }
+}

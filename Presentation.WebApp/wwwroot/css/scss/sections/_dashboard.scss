@@ -1,0 +1,43 @@
+.dashboard {
+    padding-block: 8rem;
+
+    .container {
+        display: flex;
+        gap: 5rem;
+
+        img {
+            width: 70%;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            //gap: 1rem;
+
+            h2 {
+                @include h2;
+                margin-bottom: 3rem;
+            }
+
+            .item {
+                display: flex;
+                gap: 1rem;
+
+                i {
+                    color: $theme;
+                }
+
+                p {
+                    @include text-m;
+                    color: gray-700;
+                }
+            }
+        }
+
+        .learn-more {
+            margin-top: 2rem;
+            padding: 0.8rem;
+            width: 60%;
+        }
+    }
+}

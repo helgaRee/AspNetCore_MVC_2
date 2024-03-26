@@ -1,0 +1,64 @@
+﻿@model SignUpViewModel
+
+
+@{
+    ViewData["Title"] = "Create Account";
+}
+
+
+<section class="signup">
+    <div class="container">
+
+        @if (!string.IsNullOrEmpty(ViewData["ErrorMessage"]?.ToString()))
+        {
+            <div class="error-message">
+                @ViewData["ErrorMessage"]
+            </div>
+        }
+
+
+
+        <form method="post" asp-action="SignUp" asp-controller="Auth" novalidate>
+            <h1>Create  Account</h1>
+            <p>Already have an account? <a asp-action="SignIn" asp-controller="Auth">Sign in here</a></p>
+
+            <div class="form-content">
+                <div id="firstname" class="input-group">
+                    <label asp-for="Form.FirstName"></label>
+                    <input asp-for="Form.FirstName" />
+                    <span asp-validation-for="Form.FirstName"></span>
+                </div>
+                <div id="lastname" class="input-group">
+                    <label asp-for="Form.LastName"></label>
+                    <input asp-for="Form.LastName" />
+                    <span asp-validation-for="Form.LastName"></span>
+                </div>
+                <div id="email" class="input-group">
+                    <label asp-for="Form.Email"></label>
+                    <input asp-for="Form.Email" />
+                    <span asp-validation-for="Form.Email"></span>
+                </div>
+                <div id="password" class="input-group">
+                    <label asp-for="Form.Password"></label>
+                    <input asp-for="Form.Password" />
+                    <span asp-validation-for="Form.Password"></span>
+                </div>
+                <div id="confirm" class="input-group">
+                    <label asp-for="Form.ConfirmPassword"></label>
+                    <input asp-for="Form.ConfirmPassword" />
+                    <span asp-validation-for="Form.ConfirmPassword"></span>
+                </div>
+                <div id="terms" class="checkbox-group">
+                    <div class="input-group">
+                        <input asp-for="Form.TermsAndConditions" />
+                        <label asp-for="Form.TermsAndConditions">
+                            I accept the <a asp-action="TermsAndCondition" asp-controller="About">Terms & Conditions</a>.
+                        </label>
+                    </div>
+                </div>
+                <button id="btn-submit" type="submit" class="btn-theme-s">Sign Up</button>
+            </div>
+        </form>
+
+    </div>
+</section>

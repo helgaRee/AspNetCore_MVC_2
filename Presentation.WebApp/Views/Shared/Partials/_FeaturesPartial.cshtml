@@ -1,0 +1,46 @@
+﻿
+@inject FeatureService _featureService
+@{
+    //hämtar information till denna section
+    //eftersom jag ovan anv GetAllFeatures-metoden, vilket är en lista av items, beh jag skapa en lista nedan
+    //och konverterar till en lista
+
+    var result = await _featureService.GetAllFeaturesAsync();
+    List<FeatureEntity> content = (List<FeatureEntity>)result.ContentResult!;
+
+
+    if (content == null)
+    {
+        ResponseFactory.Error("Something went wrong..");
+        <h1>KAN EJ VISAS</h1>
+    }
+    else
+    {
+        var feature = content.First(); //hämtar ut första
+        @if (content != null) {
+            <section class="features">
+                <div class="container">
+                    <h1>@feature.Title</h1>
+                    <p>@feature.Ingress</p>
+
+                    <div class="tool-features">
+                        @foreach(var item in feature.FeatureItems)
+                        {
+                            <div class="box border-right border-bottom">
+                                <img src="images/icons//@item.ImageUrl" alt="">
+                                <h5>@item.Title</h5>
+                                <p>@item.Text</p>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </section>
+        }
+    }
+}
+
+
+
+
+@* What do you get with your tool?
+make sure all your tasks are organised so you can set the priorities focus on important. *@

@@ -1,0 +1,25 @@
+.error-404 {
+    .container {
+        display: flex;
+        flex-direction: column;
+        padding-block: 10rem;
+
+        .content {
+            text-align: center;
+
+            img {
+            }
+
+            h1 {
+            }
+
+            p {
+            }
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+        }
+    }
+}

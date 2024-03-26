@@ -1,0 +1,122 @@
+.signup {
+
+    .container {
+        width: 75%;
+        margin: 0 auto;
+
+        form {
+
+            .form-content {
+                display: grid;
+                row-gap: 30px;
+                grid-template-columns: 1fr;
+                grid-template-areas: "firstname" "lastname" "email" "password" "confirm" "terms" "submit";
+            }
+
+            .input-group {
+                label {
+                    padding: 3px;
+                }
+
+                margin-bottom: 20px;
+            }
+
+            .checkbox-group {
+
+            }
+
+            #firstname {
+                grid-area: firstname;
+            }
+
+            #lastname {
+                grid-area: lastname;
+            }
+
+            #email {
+                grid-area: email;
+            }
+
+            #password {
+                grid-area: password;
+            }
+
+            #confirm {
+                grid-area: confirm;
+            }
+
+            #terms {
+                grid-area: terms;
+            }
+
+            #submit {
+                grid-area: submit;
+            }
+        }
+    }
+}
+
+
+@media (min-width: 768px) {
+
+    .signup {
+        margin-top: 30px;
+
+        .container {
+ 
+
+            form {
+                .form-content {
+                    grid-template-columns: 1fr 1fr;
+                    grid-template-areas: "firstname lastname" "email email" "password confirm" "terms terms" "submit submit";
+                }
+
+                .input-group {
+
+                    label {
+                        padding: 3px;
+                    }
+
+                    margin-bottom: 20px;
+                }
+
+                .checkbox-group {
+
+                }
+
+            }
+        }
+    }
+}
+
+@media (min-width: 992px) {
+
+    .signup {
+        margin-top: 30px;
+
+        .container {
+            width: 45%;
+
+            form {
+                .form-content {
+                    grid-template-columns: 1fr 1fr;
+                    grid-template-areas: "firstname lastname" "email email" "password confirm" "terms terms" "submit submit";
+                }
+
+                .input-group {
+
+                    label {
+                        padding: 3px;
+                    }
+
+                    margin-bottom: 20px;
+                }
+
+                .checkbox-group {
+     
+                }
+
+            }
+        }
+    }
+}

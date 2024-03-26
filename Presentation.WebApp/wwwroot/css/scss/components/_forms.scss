@@ -1,0 +1,61 @@
+form {
+    width: 100%;
+    display: grid;
+
+    .input-group {
+        display: grid;
+    }
+
+    .checkbox-group {
+
+        input[type = checkbox] {
+            margin-right: 10px;
+        }
+
+        .input-group {
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    input[type = checkbox] {
+        height: 50px;
+        width: 20px;
+        margin: 0;
+    }
+
+    input {
+        padding: 16px;
+        border-radius: 8px;
+        border: 1px solid grey;
+
+        &::placeholder {
+            opacity: 0.5;
+        }
+    }
+
+    input[type = checkbox] {
+        height: 50px;
+        width: 20px;
+        margin: 0;
+    }
+
+    button {
+        font-size: 16px;
+        font-weight: 400 !important;
+        width: 100%;
+    }
+
+    .field-validation-error {
+        font-size: 14px;
+        font-weight: 400 !important;
+        color: darkred;
+    }
+}
+
+.error-message{
+    background-color: lightpink;
+    padding: 0.5rem;
+    border-radius: 8px;
+    text-align: center;
+}

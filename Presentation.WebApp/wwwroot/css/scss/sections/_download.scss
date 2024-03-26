@@ -1,0 +1,58 @@
+.download-app {
+    background: $gray-100;
+     padding-block: 9rem; 
+
+    .container {
+        display: flex;
+        gap: 6rem;
+
+        img {
+            width: 50%;
+            height: 50%;
+            align-self: center;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+
+            h2 {
+                @include h1;
+                margin-bottom: 40px;
+            }
+
+            .box {
+                display: flex;
+                flex-direction: row-reverse;
+                justify-content: space-between;
+            }
+
+            img {}
+
+            .box-content {
+                display: flex;
+                flex-direction: column;
+
+
+                span {
+                    @include text-m;
+                    color: $gray-600;
+                }
+
+                .rating {
+                    color: #FFBA08;
+                }
+
+                h4 {
+                    @include h4;
+                }
+
+                p {
+                    @include text-m;
+                    color: $gray-700;
+                }
+            }
+        }
+    }
+}

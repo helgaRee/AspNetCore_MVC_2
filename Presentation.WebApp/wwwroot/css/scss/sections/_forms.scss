@@ -1,0 +1,157 @@
+form {
+
+    width: 100%;
+    display: grid;
+
+
+    .input-group {
+        margin: 1rem 0;
+        display: grid;
+    }
+
+    .Checkbox {
+        span {
+            display: block;
+
+            &.field-validation-error {
+                position: static;
+                top: 0;
+                right: 0;
+                @include text-s;
+                color: $danger;
+            }
+        }
+    }
+
+
+
+
+    .checkbox-group {
+        position: relative;
+        height: 50px;
+        /* Flytta valideringsfel-meddelandet ovanför knappen */
+
+        .field-validation-error-terms {
+            position: absolute;
+            bottom: 100%;
+            /* Flytta till toppen av föräldern (.checkbox-group) */
+            right: 0;
+            @include text-s;
+            color: $danger;
+            z-index: 10;
+
+            &::after {
+                font-size: 2em;
+                display: block;
+                content: '\2BBF';
+            }
+        }
+
+        .input-group {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 0.5rem;
+
+            input[type="checkbox"] {
+                width: 1.2rem;
+                height: 1.2rem;
+                border: 0.06rem solid red;
+
+                &.input-validation-error {
+                    position: relative;
+                    box-shadow: 0 0 0 0.06rem $danger;
+                    color: $danger;
+
+                    &::placeholder {
+                        color: $danger;
+                    }
+                }
+            }
+
+            label {
+                margin: 0;
+                font-weight: 400;
+            }
+        }
+    }
+
+    .form-buttons {
+        margin-top: 1rem;
+        /* Lägg till önskad marginal mellan checkbox-gruppen och knapparna */
+    }
+
+
+
+
+
+
+    label {
+        margin-bottom: 3px;
+        font-weight: 700;
+    }
+
+    input {
+        padding: 1rem;
+        border-radius: 8px !important;
+        border: 1px solid $gray-400;
+
+        &::placeholder {
+            opacity: 0.4;
+        }
+
+        &.input-validation-error {
+            position: relative;
+            border: 0.06rem solid $danger !important;
+            color: $danger;
+
+            &::placeholder {
+                color: $danger;
+            }
+        }
+
+        &:focus {
+            outline: none;
+            border: 0.06rem solid $gray-600;
+        }
+    }
+
+
+
+
+    textarea {
+        padding: 1rem;
+        border-radius: 0.5rem !important;
+        border: 0.06 rem solid $gray-400;
+        resize: none;
+
+        &::placeholder {
+            opacity: 0.4;
+        }
+
+        &.input-validation-error {
+            border: 0.06rem solid $danger !important;
+            color: $danger;
+        }
+    }
+
+    span {
+        &.field-validation-error {
+            position: absolute;
+            top: 0;
+            right: 0;
+            @include text-s;
+            color: $danger;
+
+            &::after {
+                position: absolute;
+                right: 10px;
+                top: 47px;
+                z-index: 10;
+                font-size: 2em;
+                display: block;
+                content: '\2BBF';
+            }
+        }
+    }
+}

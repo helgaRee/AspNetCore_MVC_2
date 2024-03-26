@@ -1,0 +1,74 @@
+.showcase {
+    display: flex;
+    flex-direction: row;
+
+
+    .container {
+        display: flex;
+
+
+        @include lg {
+            padding: 0;
+            margin-top: 70px;
+            display: flex;
+            flex-direction: row-reverse;
+        }
+
+        @include xl {
+        }
+
+        .background-image {
+            display: none;
+            max-width: 100%; // ej bli större än usrprungliga storlek
+            height: auto; //bibehåller bildens prop
+            gap: 0;
+
+            @include lg {
+                display: block;
+                width: 60%;
+            }
+        }
+
+        .content {
+            padding: 15px;
+            text-align: center;
+
+            @include lg {
+                display: flex;
+                text-align: left;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            h1 {
+                @include h1;
+            }
+
+            .btn-short {
+                width: 220px;
+                margin: 0 auto;
+                margin-bottom: 20px;
+
+                @include lg {
+                    margin-left: 0;
+                }
+            }
+
+            .brands-wrapper {
+                margin-top: 50px;
+
+                .brands {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                    justify-items: center;
+
+                    @include lg {
+                        gap: 15px;
+                        justify-content: left;
+                        margin-left: -25px;
+                    }
+                }
+            }
+        }
+    }
+}

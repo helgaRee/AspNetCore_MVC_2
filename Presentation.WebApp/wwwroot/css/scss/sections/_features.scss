@@ -1,0 +1,84 @@
+.features {
+    margin-top: 150px;
+    padding-block: 6rem;
+    background: $gray-100;
+
+    .container {
+        text-align: center;
+
+        h1 {
+            @include h1;
+            margin-bottom: 30px;
+        }
+
+        p {
+            color: $gray-600;
+        }
+
+        .tool-features {
+            padding: 1.5rem;
+            display: grid;
+            //gap: 1rem;
+            margin-top: 50px;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr;
+
+            @media screen and (min-width: 992px) {
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 1fr 1fr 1fr;
+            }
+
+            @media screen and (min-width: 1200px) {
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-template-rows: 1fr 1fr;
+            }
+
+            .box {
+                padding: 1rem;
+                text-align: center;
+
+                @media screen and (min-width: 1200px) {
+                    padding: 2rem;
+                }
+
+                h5 {
+                    @include h5;
+                    margin-block: 15px;
+                }
+
+                p {
+                    @include text-m;
+                    color: $gray-700;
+                }
+            }
+        }
+    }
+}
+
+.border-right {
+
+    @media screen and (min-width: 1200px) {
+        border-right: 1px solid rgba(210, 210, 210, 0.252);
+    }
+}
+
+.border-left {
+
+    @media screen and (min-width: 1200px) {
+        border-left: 1px solid rgba(210, 210, 210, 0.252);
+    }
+}
+
+.border-top {
+
+    @media screen and (min-width: 1200px) {
+        border-top: 1px solid rgba(210, 210, 210, 0.252);
+    }
+}
+
+.border-bottom {
+
+    @media screen and (min-width: 1200px) {
+        border-bottom: 1px solid rgba(210, 210, 210, 0.252);
+    }
+}

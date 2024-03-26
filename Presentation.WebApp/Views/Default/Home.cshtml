@@ -1,0 +1,22 @@
+﻿@inject FeatureService featureService
+@model DefaultHomeViewModel
+
+@{
+    ViewData["Title"] = "Home";
+
+
+}
+@*  @await Html.PartialAsync("~/Views/Shared/Partials/_FeaturesPartial.cshtml") *@
+ @await Html.PartialAsync("~/Views/Shared/Partials/_ShowcasePartial.cshtml", Model.Showcase)
+
+
+
+
+@* <Partial name="~/Views/Shared/Partials/_ShowcasePartial.cshtml", Model.Showcase /> *@
+
+
+<Partial name="~/Views/Shared/Partials/_FeaturesPartial.cshtml" />
+<Partial name="~/Views/Shared/Partials/_DashboardPartial.cshtml" />
+<Partial name="~/Views/Shared/Partials/_DownloadAppPartial.cshtml" />
+<Partial name="~/Views/Shared/Partials/_WorkToolsPartial.cshtml" />
+<Partial name="~/Views/Shared/Partials/_NewslettersPartial.cshtml" />

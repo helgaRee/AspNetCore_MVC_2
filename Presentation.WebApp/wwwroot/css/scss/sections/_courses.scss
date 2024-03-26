@@ -1,0 +1,351 @@
+.courses {
+    .container {
+
+
+        .section-top {
+
+            .top-nav {
+                nav {
+                    .breadcrumb {
+                        .breadcrumb-item {
+                            color: $gray-600;
+                        }
+                    }
+                }
+            }
+
+            .top-search {
+                display: flex;
+                flex-direction: column-reverse;
+
+                .heading {
+                    text-align: center;
+
+                    h1 {
+                        @include h1;
+                    }
+
+                }
+
+                .input-fields {
+                    display: flex;
+                    flex-direction: column-reverse;
+
+
+                    .input-fields {
+
+
+                        .dropdown {
+                            position: relative;
+                            display: inline-block;
+
+
+
+                            .dropdown-btn {
+                                background-color: #4CAF50;
+                                color: white;
+                                padding: 16px;
+                                font-size: 16px;
+                                border: none;
+                                cursor: pointer;
+
+
+                            }
+
+                            .dropdown-menu {
+                                display: none;
+                                position: absolute;
+                                background-color: #f9f9f9;
+                                min-width: 160px;
+                                box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+                                z-index: 1;
+
+
+
+
+                                .dropdown-item {}
+
+                                a {
+                                    color: black;
+                                    padding: 12px 16px;
+                                    text-decoration: none;
+                                    display: block;
+                                }
+
+                                a:hover {
+                                    background-color: #f1f1f1
+                                }
+                            }
+                        }
+                    }
+
+
+
+
+                    .input-user {
+                        position: relative;
+
+                        input {
+                            width: 100%;
+                        }
+
+                        i {
+                            position: absolute;
+                            top: 9px;
+                            left: 4px;
+                        }
+                    }
+                }
+
+            }
+        }
+
+
+
+        .content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            justify-items: center;
+            gap: 2rem;
+
+            .box {
+                position: relative;
+                box-shadow: 4px 3px 4px $gray-200;
+                /* Krävs för att positionera det absoluta pseudoelementet relativt till .box */
+
+                .box::after {
+                    content: '';
+                    /* Nödvändigt för att skapa pseudoelementet */
+                    position: absolute;
+                    /* Placera pseudoelementet absolut relativt till .box */
+                    bottom: 0;
+                    /* Placera pseudoelementet längst ner */
+                    left: 0;
+                    /* Placera pseudoelementet längst till vänster */
+                    width: 100%;
+                    /* Bredden är lika med förälderens bredd */
+                    height: 1px;
+                    /* Tjockleken på din önskade border */
+                    background-color: $gray-300;
+                    /* Färgen på din önskade border */
+                }
+
+                .hover-content {
+
+                    &:hover {
+                        opacity: 0.85;
+                        transition: ease-in-out 0.5s;
+                        text-decoration: underline;
+                        box-shadow: 5px 4px 5px $gray-800;
+
+                    }
+
+                    .img-container {
+                        position: relative;
+                        z-index: 1;
+                        width: fit-content;
+
+                        /* Anpassa bredden efter innehållet */
+                        .img-course {
+                            position: relative;
+                            /* Sätt positionen till relativ för att undvika att texten och ikonen placeras relativt till varandra */
+                            height: auto;
+                            display: block;
+                            /* Visa bilden som ett blockelement för att möjliggöra positionering */
+                            border-radius: 10px;
+                            width: 100%;
+                        }
+
+                        span,
+                        .icon {
+                            position: absolute;
+                            z-index: 2;
+                        }
+
+                        span {
+                            top: 10px;
+                            /* Justera vertikal position efter behov */
+                            left: 10px;
+                            /* Justera horisontell position efter behov */
+                            z-index: 2;
+                            background-color: $success;
+                            color: $gray-100;
+                            padding-inline: 0.8rem;
+                            border-radius: 5px;
+
+                        }
+
+                        .icon {
+                            top: 10px;
+                            /* Justera vertikal position efter behov */
+                            right: 10px;
+                            /* Justera horisontell position efter behov */
+                            z-index: 2;
+                        }
+                    }
+
+
+                    .box-content {
+                        .content-top {
+                            padding-bottom: 1rem;
+
+
+
+                            .heading-link {
+                                @include h5;
+                                color: $gray-800;
+                            }
+
+                            p {
+                                color: $gray-700;
+                            }
+
+                            .price {
+                                color: $theme;
+                                font-weight: 600;
+                            }
+                        }
+                    }
+
+                    .content-bottom {
+                        display: flex;
+                        flex-direction: row;
+                        color: $gray-600;
+                        margin-top: 1rem;
+                        gap: 1.5rem;
+
+                        .estimated-time,
+                        .likes {
+                            display: flex;
+                            flex-direction: row;
+                            align-items: baseline;
+                            gap: 0.4rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+button {
+    border: 1px solid black;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+
+.dropdown:hover .dropdown-btn {
+    background-color: $theme;
+    color: $gray-100;
+}
+
+.content-top {
+    /* Annan CSS för .content-top här */
+    position: relative;
+    /* Sätt positionen till relativ för att skapa referenspunkt för det absoluta pseudoelementet */
+}
+
+.content-top::after {
+    content: '';
+    /* Nödvändigt för att skapa pseudoelementet */
+    position: absolute;
+    /* Placera pseudoelementet absolut relativt till .content-top */
+    bottom: -1px;
+    /* Placera pseudoelementet under .content-top */
+    left: 0;
+    /* Justera horisontell position efter behov */
+    width: 100%;
+    /* Bredden är lika med förälderens (.content-top) bredd */
+    height: 1px;
+    /* Tjockleken på din önskade border */
+    background-color: $gray-300;
+    /* Färgen på din önskade border */
+}
+
+
+
+
+
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.7rem;
+    margin-top: 1rem;
+
+    .pag-item {
+        padding-inline: 15px;
+        padding-block: 7px;
+        text-decoration: none;
+        border-radius: 5px;
+        color: $gray-800;
+
+
+        &:hover {
+            background: $gray-200;
+            text-decoration: underline;
+
+        }
+
+        &:active {
+            background: $gray-600;
+            color: $gray-100;
+
+        }
+    }
+}
+
+
+
+/* MEDIA QUERIES */
+
+
+
+
+@media (min-width: 576px) {
+    .img-course {
+        width: 100%;
+    }
+}
+
+
+
+
+
+@media (min-width: 768px) {
+    .courses {
+        display: block;
+
+        .container {
+            .section-top {
+                .top-search {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+
+                    .input-fields {
+                        display: flex;
+                        flex-direction: row;
+                        align-self: center;
+
+                    }
+
+                }
+            }
+        }
+    }
+
+
+
+
+
+
+
+}
+
+
