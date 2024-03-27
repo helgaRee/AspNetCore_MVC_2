@@ -21,15 +21,22 @@ public abstract class Repo<TEntity> where TEntity : class
     {
         try
         {
+
+            if (entity == null)
+            {
+                return ResponseFactory.Error("Entity is null");
+            }
+
+            _context.Set<TEntity>().Add(entity);
+            await _context.SaveChangesAsync();
+
+            return ResponseFactory.Ok("Entity was created.");
             //"set" entiteten vilken avgör vilken tabell vi ska gå emot
             //lägger in information till db och skapar
             //skapar information i databasen
             //Lägger till en entitet till db och sparar. 
             //Lägger in info i db och skickar tillbaka
-            _context.Set<TEntity>().Add(entity);
-            await _context.SaveChangesAsync();
             //returnerar entiteten genom min factory
-            return ResponseFactory.Ok(entity);
         }
         catch (Exception ex)
         {

@@ -1,6 +1,5 @@
 ﻿using Infrastructure.Entities;
 using Infrastructure.Factories;
-using Infrastructure.Helpers;
 using Infrastructure.Model;
 using Infrastructure.Repositories;
 
@@ -37,21 +36,30 @@ public class UserService(UserRepository repository, AddressService addressServic
     {
         try
         {
-            //sökning - hämtar från repo
+            // Sökning - hämtar från repo
             var result = await _repository.GetOneAsync(x => x.Email == model.Email);
-            //kontroll om användaren stämmer
+
+            // Kontroll om användaren stämmer
             if (result.StatusCode == StatusCode.OK && result.ContentResult != null)
             {
+                // Konvertera till en UserEntity
+                var userEntity = (UserEntity)result.ContentResult;
 
-                //kontroll om lösenordet stämmer - validerar med hasher - genererar OK om lyckas
-                var userEntity = (UserEntity)result.ContentResult; //conv om till en UserEntity
-                if (PasswordHasher.ValidateSecurePassword(model.Password, userEntity.Password, userEntity.SecurityKey))
-                    return ResponseFactory.Ok();
-
+                // Kontroll om lösenordet stämmer
+                //if (PasswordHasher.ValidateSecurePassword(model.Password, userEntity.Password, userEntity.SecurityKey))
+                //{
+                //    return ResponseFactory.Ok();
+                //}
             }
-            return ResponseFactory.Error("Fel email ELLER lösenoooooRD!");
+
+            // Om vi är här, antingen användaren finns inte eller lösenordet är felaktigt
+            return ResponseFactory.Error("Fel email!");
 
         }
-        catch (Exception ex) { return ResponseFactory.Error(ex.Message); }
+        catch (Exception ex)
+        {
+            // Hantera eventuella undantag
+            return ResponseFactory.Error($"Ett fel inträffade: {ex.Message}");
+        }
     }
 }

@@ -8,7 +8,7 @@ builder.Services.AddSwaggerGen();
 
 //Koppla ihop med databasen
 builder.Services.AddDbContext<DataContext>(x =>
-x.UseSqlServer(builder.Configuration.GetConnectionString("sqlServer")));
+x.UseSqlServer(builder.Configuration.GetConnectionString("LocalDatabase")));
 
 var app = builder.Build();
 app.UseCors(x => x.AllowAnyHeader().AllowAnyOrigin().AllowAnyMethod());

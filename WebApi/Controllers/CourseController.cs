@@ -1,7 +1,6 @@
 ﻿using Infrastructure.Contexts;
 using Infrastructure.Entities;
 using Infrastructure.Model;
-using Infrastructure.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,12 +13,11 @@ public class CourseController : ControllerBase
 {
 
     private readonly DataContext _dataContext;
-    private readonly CourseService _courseService;
 
-    public CourseController(DataContext dataContext, CourseService courseService)
+
+    public CourseController(DataContext dataContext)
     {
         _dataContext = dataContext;
-        _courseService = courseService;
     }
 
 
@@ -100,8 +98,24 @@ public class CourseController : ControllerBase
         }
 
         return NotFound();
+    }
 
 
+    [HttpDelete]
+    public async Task<IActionResult> DeleteOne(string title)
+    {
+        //sök efter
+        var course = await _dataContext.Courses.FirstOrDefaultAsync(x => x.Title == title);
+        //kontroll - ta bort
+        if (course != null)
+        {
+            _dataContext.Remove(course);
+            await _dataContext.SaveChangesAsync();
+
+            return Ok("The course was succesfully deleted.");
+        }
+
+        return NotFound("kursen kunde ej hittas.");
     }
 
 }

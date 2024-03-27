@@ -1,5 +1,5 @@
-form {
 
+form {
     width: 100%;
     display: grid;
 
@@ -23,19 +23,80 @@ form {
         }
     }
 
+    .checkbox-group {
+        position: relative;
+        height: 50px;
+
+        .input-group {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 0.5rem;
+
+            input[type="checkbox"] {
+                width: 1.2rem;
+                height: 1.2rem;
+                border: 0.06rem solid red;
+
+                &.input-validation-error {
+                    position: relative;
+                    bow-shadow: 0 0 0 0.06rem $danger;
+                    color: $danger;
+
+                    &::placeholder {
+                        color: $danger;
+                    }
+                }
+            }
+
+            label {
+                margin: 0;
+                font-weight: 400;
+            }
+        }
+        /*
+        .field-validation-error-terms {
+            
+
+            &::after {
+                @include text-s;
+                color: $danger;
+                position: absolute;
+                right: 10px;
+                top: 0px;
+                z-index: 10;
+                font-size: 2em;
+                display: block;
+                content: '\2BBF';
+            }
+        }*/
+    }
+    /*form {
+    width: 100%;
+    display: grid;
+
+
+    .input-group {
+        margin: 1rem 0;
+        display: grid;
+    }
+
+
+    .checkbox{
+
+    }
 
 
 
     .checkbox-group {
         position: relative;
-        height: 50px;
-        /* Flytta valideringsfel-meddelandet ovanför knappen */
-
-        .field-validation-error-terms {
+        height: 50px;*/
+    /* Flytta valideringsfel-meddelandet ovanför knappen */
+    /*.field-validation-error-terms {
             position: absolute;
-            bottom: 100%;
-            /* Flytta till toppen av föräldern (.checkbox-group) */
-            right: 0;
+            bottom: 100%;*/
+    /* Flytta till toppen av föräldern (.checkbox-group) */
+    /*right: 0;
             @include text-s;
             color: $danger;
             z-index: 10;
@@ -77,9 +138,9 @@ form {
     }
 
     .form-buttons {
-        margin-top: 1rem;
-        /* Lägg till önskad marginal mellan checkbox-gruppen och knapparna */
-    }
+        margin-top: 1rem;*/
+    /* Lägg till önskad marginal mellan checkbox-gruppen och knapparna */
+    /*}
 
 
 
@@ -154,4 +215,18 @@ form {
             }
         }
     }
-}
+
+
+    .Checkbox {
+        span {
+            display: block;
+
+            &.field-validation-error {
+                position: static;
+                top: 0;
+                right: 0;
+                @include text-s;
+                color: $danger;
+            }
+        }
+    }*/

@@ -1,7 +1,10 @@
-﻿namespace Infrastructure.Model;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Infrastructure.Model;
 
 public class CourseModel
 {
+    [Required]
     public string Title { get; set; } = null!;
     public string? ImageName { get; set; }
     public string? Author { get; set; }

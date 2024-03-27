@@ -479,54 +479,187 @@ form input[type=checkbox] {
   margin: 0;
 }
 
+/*form {
+    width: 100%;
+    display: grid;
+
+    .input-group {
+        display: grid;
+    }
+
+    .checkbox-group {
+
+        input[type = checkbox] {
+            margin-right: 10px;
+        }
+
+        .input-group {
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    input[type = checkbox] {
+        height: 50px;
+        width: 20px;
+        margin: 0;
+    }
+
+    input {
+        padding: 16px;
+        border-radius: 8px;
+        border: 1px solid grey;
+
+        &::placeholder {
+            opacity: 0.5;
+        }
+    }
+
+    input[type = checkbox] {
+        height: 50px;
+        width: 20px;
+        margin: 0;
+    }
+
+    button {
+        font-size: 16px;
+        font-weight: 400 !important;
+        width: 100%;
+    }
+
+    .field-validation-error {
+        font-size: 14px;
+        font-weight: 400 !important;
+        color: darkred;
+    }
+}
+
+.error-message{
+    background-color: lightpink;
+    padding: 0.5rem;
+    border-radius: 8px;
+    text-align: center;
+}*/
 form {
   width: 100%;
   display: grid;
 }
 form .input-group {
+  margin: 1rem 0;
   display: grid;
 }
-form .checkbox-group input[type=checkbox] {
-  margin-right: 10px;
+form .Checkbox span {
+  display: block;
+}
+form .Checkbox span.field-validation-error {
+  position: static;
+  top: 0;
+  right: 0;
+  line-height: 160%;
+  font-weight: 400;
+  color: #565973;
+  font-family: "Manrope", sans-serif;
+  font-size: 14px !important;
+  color: #EF4444;
+}
+form .checkbox-group {
+  position: relative;
+  height: 50px;
+  /*
+  .field-validation-error-terms {
+
+
+      &::after {
+          @include text-s;
+          color: $danger;
+          position: absolute;
+          right: 10px;
+          top: 0px;
+          z-index: 10;
+          font-size: 2em;
+          display: block;
+          content: '\2BBF';
+      }
+  }*/
 }
 form .checkbox-group .input-group {
   display: flex;
+  justify-content: flex-start;
   align-items: center;
+  gap: 0.5rem;
 }
-form input[type=checkbox] {
-  height: 50px;
-  width: 20px;
+form .checkbox-group .input-group input[type=checkbox] {
+  width: 1.2rem;
+  height: 1.2rem;
+  border: 0.06rem solid red;
+}
+form .checkbox-group .input-group input[type=checkbox].input-validation-error {
+  position: relative;
+  bow-shadow: 0 0 0 0.06rem #EF4444;
+  color: #EF4444;
+}
+form .checkbox-group .input-group input[type=checkbox].input-validation-error::placeholder {
+  color: #EF4444;
+}
+form .checkbox-group .input-group label {
   margin: 0;
+  font-weight: 400;
+}
+form label {
+  margin-bottom: 3px;
+  font-weight: 700;
 }
 form input {
-  padding: 16px;
-  border-radius: 8px;
-  border: 1px solid grey;
+  padding: 1rem;
+  border-radius: 8px !important;
+  border: 1px solid #D4D7E5;
 }
 form input::placeholder {
-  opacity: 0.5;
+  opacity: 0.4;
 }
-form input[type=checkbox] {
-  height: 50px;
-  width: 20px;
-  margin: 0;
+form input.input-validation-error {
+  position: relative;
+  border: 0.06rem solid #EF4444 !important;
+  color: #EF4444;
 }
-form button {
-  font-size: 16px;
-  font-weight: 400 !important;
-  width: 100%;
+form input.input-validation-error::placeholder {
+  color: #EF4444;
 }
-form .field-validation-error {
-  font-size: 14px;
-  font-weight: 400 !important;
-  color: darkred;
+form input:focus {
+  outline: none;
+  border: 0.06rem solid #9397AD;
 }
-
-.error-message {
-  background-color: lightpink;
-  padding: 0.5rem;
-  border-radius: 8px;
-  text-align: center;
+form textarea {
+  padding: 1rem;
+  border-radius: 0.5rem !important;
+  border: 0.06 rem solid #D4D7E5;
+  resize: none;
+}
+form textarea::placeholder {
+  opacity: 0.4;
+}
+form textarea.input-validation-error {
+  border: 0.06rem solid #EF4444 !important;
+  color: #EF4444;
+}
+form span.field-validation-error {
+  top: 0;
+  right: 0;
+  line-height: 160%;
+  font-weight: 400;
+  color: #565973;
+  font-family: "Manrope", sans-serif;
+  font-size: 14px !important;
+  color: #EF4444;
+}
+form span.field-validation-error::after {
+  position: absolute;
+  right: 10px;
+  top: 67px;
+  z-index: 10;
+  font-size: 2em;
+  display: block;
+  content: "⮿";
 }
 
 header {
@@ -1472,156 +1605,467 @@ button {
     color: pink;
   }
 }
-.signin h1 {
-  text-align: center;
-}
-.signin p {
-  text-align: center;
-  margin: 0;
-}
-.signin .container {
-  width: 90%;
-  margin: 0 auto;
-}
-.signin .container form {
-  display: grid;
-  gap: 30px;
-}
-.signin .container form .form-content {
-  grid-template-columns: 1fr;
-  grid-template-areas: "email" "password" "remember" "submit";
-}
-.signin .container form .input-group {
-  margin-bottom: 20px;
-}
-.signin .container form .input-group label {
-  padding: 3px;
-}
-.signin .container form .checkbox-group {
-  margin-top: 30px;
-  margin-bottom: 50px;
-}
-.signin .container form #email {
-  grid-area: email;
-}
-.signin .container form #password {
-  grid-area: password;
-}
-.signin .container form #btn-submit {
-  grid-area: submit;
-}
-.signin .container form #rememberMe {
-  grid-area: rememberMe;
+/*.signin {
+
+    h1 {
+        text-align: center;
+    }
+
+    p {
+        text-align: center;
+        margin: 0;
+    }
+
+
+
+    .container {
+        width: 90%;
+        margin: 0 auto;
+
+        form {
+            display: grid;
+            gap: 30px;
+
+            .form-content {
+                grid-template-columns: 1fr;
+                grid-template-areas: "email" "password" "remember" "submit";
+            }
+
+            .input-group {
+                label {
+                    padding: 3px;
+                }
+
+                margin-bottom: 20px;
+            }
+
+            .checkbox-group {
+                margin-top: 30px;
+                margin-bottom: 50px;
+            }
+
+
+            #email {
+                grid-area: email;
+            }
+
+            #password {
+                grid-area: password;
+            }
+
+            #btn-submit {
+                grid-area: submit;
+            }
+
+            #rememberMe {
+                grid-area: rememberMe;
+            }
+        }
+    }
 }
 
 @media (min-width: 576px) {
-  .signin {
+
+    .signin {
+        margin-top: 30px;
+
+        .container {
+            width: 70%;
+
+            form {
+
+                .input-group {
+
+                    label {
+                        padding: 3px;
+                    }
+
+                    margin-bottom: 20px;
+                }
+
+                .checkbox-group {
+                    margin-top: 30px;
+                    margin-bottom: 50px;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 768px) {
+
+    .signin {
+        margin-top: 30px;
+
+        .container {
+            width: 50%;
+
+            form {
+
+                .input-group {
+
+                    label {
+                        padding: 3px;
+                    }
+
+                    margin-bottom: 20px;
+                }
+
+                .checkbox-group {
+                    margin-top: 30px;
+                    margin-bottom: 50px;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 992px) {
+
+    .signin {
+        margin-top: 30px;
+
+        .container {
+            width: 45%;
+
+            form {
+
+                .input-group {
+
+                    label {
+                        padding: 3px;
+                    }
+
+                    margin-bottom: 20px;
+                }
+
+                .checkbox-group {
+                    margin-top: 30px;
+                    margin-bottom: 50px;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 1200px) {
+
+    .signin {
+        margin-top: 30px;
+
+        .container {
+            width: 45%;
+
+            form {
+
+                .input-group {
+
+                    label {
+                        padding: 3px;
+                    }
+
+                    margin-bottom: 20px;
+                }
+
+                .checkbox-group {
+                    margin-top: 30px;
+                    margin-bottom: 50px;
+                }
+            }
+        }
+    }
+}
+*/
+#signin {
+  height: 100%;
+}
+#signin .container {
+  width: 90%;
+  margin: 0 auto;
+}
+#signin .container form {
+  display: grid;
+  gap: 30px;
+}
+#signin .container form .form-content {
+  grid-template-columns: 1fr;
+  grid-template-areas: "email" "password" "remember" "submit";
+}
+#signin .container form .input-group {
+  margin-bottom: 20px;
+}
+#signin .container form .input-group label {
+  padding: 3px;
+}
+#signin .container form .checkbox-group {
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+#signin .container form #email {
+  grid-area: email;
+}
+#signin .container form #password {
+  grid-area: password;
+}
+#signin .container form #btn-submit {
+  grid-area: submit;
+}
+#signin .container form #rememberMe {
+  grid-area: rememberMe;
+}
+#signin .container form #form-submit {
+  width: 100%;
+}
+
+@media (min-width: 576px) {
+  #signin {
     margin-top: 30px;
   }
-  .signin .container {
+  #signin .container {
     width: 70%;
   }
-  .signin .container form .input-group {
+  #signin .container form .input-group {
     margin-bottom: 20px;
   }
-  .signin .container form .input-group label {
+  #signin .container form .input-group label {
     padding: 3px;
   }
-  .signin .container form .checkbox-group {
+  #signin .container form .checkbox-group {
     margin-top: 30px;
     margin-bottom: 50px;
   }
 }
 @media (min-width: 768px) {
-  .signin {
+  #signin {
     margin-top: 30px;
   }
-  .signin .container {
+  #signin .container {
     width: 50%;
   }
-  .signin .container form .input-group {
+  #signin .container form .input-group {
     margin-bottom: 20px;
   }
-  .signin .container form .input-group label {
+  #signin .container form .input-group label {
     padding: 3px;
   }
-  .signin .container form .checkbox-group {
+  #signin .container form .checkbox-group {
     margin-top: 30px;
     margin-bottom: 50px;
   }
 }
 @media (min-width: 992px) {
-  .signin {
+  #signin {
     margin-top: 30px;
   }
-  .signin .container {
+  #signin .container {
     width: 45%;
   }
-  .signin .container form .input-group {
+  #signin .container form .input-group {
     margin-bottom: 20px;
   }
-  .signin .container form .input-group label {
+  #signin .container form .input-group label {
     padding: 3px;
   }
-  .signin .container form .checkbox-group {
+  #signin .container form .checkbox-group {
     margin-top: 30px;
     margin-bottom: 50px;
   }
 }
 @media (min-width: 1200px) {
-  .signin {
+  #signin {
     margin-top: 30px;
   }
-  .signin .container {
+  #signin .container {
     width: 45%;
   }
-  .signin .container form .input-group {
+  #signin .container form .input-group {
     margin-bottom: 20px;
   }
-  .signin .container form .input-group label {
+  #signin .container form .input-group label {
     padding: 3px;
   }
-  .signin .container form .checkbox-group {
+  #signin .container form .checkbox-group {
     margin-top: 30px;
     margin-bottom: 50px;
   }
 }
-.signup .container {
-  width: 75%;
+/*.signup {
+
+    .container {
+        width: 75%;
+        margin: 0 auto;
+
+        form {
+
+            .form-content {
+                display: grid;
+                row-gap: 30px;
+                grid-template-columns: 1fr;
+                grid-template-areas: "firstname" "lastname" "email" "password" "confirm" "terms" "submit";
+            }
+
+            .input-group {
+                label {
+                    padding: 3px;
+                }
+
+                margin-bottom: 20px;
+            }
+
+            .checkbox-group {
+
+            }
+
+            #firstname {
+                grid-area: firstname;
+            }
+
+            #lastname {
+                grid-area: lastname;
+            }
+
+            #email {
+                grid-area: email;
+            }
+
+            #password {
+                grid-area: password;
+            }
+
+            #confirm {
+                grid-area: confirm;
+            }
+
+            #terms {
+                grid-area: terms;
+            }
+
+            #submit {
+                grid-area: submit;
+            }
+        }
+    }
+}
+
+
+@media (min-width: 768px) {
+
+    .signup {
+        margin-top: 30px;
+
+        .container {
+
+
+            form {
+                .form-content {
+                    grid-template-columns: 1fr 1fr;
+                    grid-template-areas: "firstname lastname" "email email" "password confirm" "terms terms" "submit submit";
+                }
+
+                .input-group {
+
+                    label {
+                        padding: 3px;
+                    }
+
+                    margin-bottom: 20px;
+                }
+
+                .checkbox-group {
+
+                }
+
+            }
+        }
+    }
+}
+
+@media (min-width: 992px) {
+
+    .signup {
+        margin-top: 30px;
+
+        .container {
+            width: 45%;
+
+            form {
+                .form-content {
+                    grid-template-columns: 1fr 1fr;
+                    grid-template-areas: "firstname lastname" "email email" "password confirm" "terms terms" "submit submit";
+                }
+
+                .input-group {
+
+                    label {
+                        padding: 3px;
+                    }
+
+                    margin-bottom: 20px;
+                }
+
+                .checkbox-group {
+
+                }
+
+            }
+        }
+    }
+}*/
+#signup {
+  height: 100%;
+}
+#signup .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
   margin: 0 auto;
 }
-.signup .container form .form-content {
+@media (min-width: 992px) {
+  #signup .container {
+    width: 60%;
+  }
+}
+@media (min-width: 1200px) {
+  #signup .container {
+    width: 40%;
+  }
+}
+#signup .container form {
+  padding: 1rem;
+}
+#signup .container form .content {
   display: grid;
-  row-gap: 30px;
+  gap: 0 1rem;
   grid-template-columns: 1fr;
-  grid-template-areas: "firstname" "lastname" "email" "password" "confirm" "terms" "submit";
+  grid-template-areas: "firstname" "lastname" "email" "password" "confirm" "terms" "button";
 }
-.signup .container form .input-group {
-  margin-bottom: 20px;
+@media (min-width: 768px) {
+  #signup .container form .content {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "firstname lastname" "email email" "password password" "confirm confirm" "terms terms" "button button";
+  }
 }
-.signup .container form .input-group label {
-  padding: 3px;
-}
-.signup .container form #firstname {
+#signup .container form .content #form-firstname {
   grid-area: firstname;
 }
-.signup .container form #lastname {
+#signup .container form .content #form-lastname {
   grid-area: lastname;
 }
-.signup .container form #email {
+#signup .container form .content #form-email {
   grid-area: email;
 }
-.signup .container form #password {
+#signup .container form .content #form-password {
   grid-area: password;
 }
-.signup .container form #confirm {
+#signup .container form .content #form-confirm {
   grid-area: confirm;
 }
-.signup .container form #terms {
+#signup .container form .content #form-terms {
   grid-area: terms;
 }
-.signup .container form #submit {
-  grid-area: submit;
+#signup .container form .content #form-submit {
+  grid-area: button;
 }
 
 @media (min-width: 768px) {

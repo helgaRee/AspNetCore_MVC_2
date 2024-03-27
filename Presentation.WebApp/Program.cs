@@ -10,7 +10,7 @@ builder.Services.AddControllersWithViews();
 
 //connectionstring
 builder.Services.AddDbContext<DataContext>(options =>
-options.UseSqlServer(builder.Configuration.GetConnectionString("sqlServer"))
+options.UseSqlServer(builder.Configuration.GetConnectionString("LocalDatabase"))
 );
 
 // Register services och repositories. Alla services och repos som anv datacintexten ska va scoped
